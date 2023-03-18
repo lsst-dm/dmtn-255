@@ -75,6 +75,8 @@ Conclusion
 Since DM is already productizing the Auto-Ingest Service framework for the LFA and Rucio uses, it will be minimal additional effort to ensure that it has a suitable interface for Rapid Analysis (as exemplified by the current RubinTV).
 This framework is a better fit for Rapid Analysis than Prompt Processing, which will be allowed to develop on its own.
 
+Attempting to modify Prompt Processing to satisfy Rapid Analysis's needs will take longer, leading to later delivery of the functionality, and it will require more effort, which is hard to find.
+
 
 Pipelines
 =========
