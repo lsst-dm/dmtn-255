@@ -31,6 +31,9 @@ Rapid Analysis is intended to run after the receipt of a _single_ per-detector `
 It then executes a script on that detector's image.
 It should not be conditioned on a ``nextVisit`` event, as that event does not exist or is meaningless for many engineering and possibly Commissioning images that are not taken with normal observing scripts.
 
+Triggering all Rapid Analysis on ``nextVisit``, even when no preload is necessary, will waste worker cores and memory that are sitting idle waiting for images.
+This is essentially mandating two "strings" of processing for pipelines that may only need one (since they finish faster than the inter-exposure interval), or three for those that need two.
+
 Prompt Processing requires elasticity of resources, as it is typically used for executing tasks that run for longer than the inter-visit (let alone the inter-exposure) time and can be variable in total runtime.
 It is better to let processing (for which significant time has been invested) run long than to abort it and catch up later, but this requires bringing a spare worker online.
 Enabling this elasticity adds some complexity and can lead to "cold starts", which are tolerable for Alert Production but not most potential Rapid Analysis uses.
